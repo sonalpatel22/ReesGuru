@@ -1,0 +1,211 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sabrewinginfotech.reesguru.fragment.NearByFragment">
+
+    <fragment
+        android:id="@+id/map"
+        class="com.sabrewinginfotech.reesguru.fragment.MySupportMapFragment"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+
+    <FrameLayout
+        android:id="@+id/fram_map"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />
+
+    <RelativeLayout
+        android:id="@+id/filter_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite"
+        android:padding="5dp">
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/layout_details"
+            android:layout_toStartOf="@+id/layout_details"
+            android:progressTint="@color/colorPrimary"
+            android:thumbTint="@color/colorPrimary" />
+
+        <LinearLayout
+            android:id="@+id/layout_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal"
+            android:paddingRight="@dimen/padding_small">
+
+            <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                android:id="@+id/textView_radius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/textView_refresh"
+                android:ems="3"
+                android:gravity="left"
+                android:maxEms="1"
+                android:text="100Km "
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                app:font="@string/font_roboto_regular" />
+
+            <ImageView
+                android:id="@+id/img_btn_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:src="@drawable/icn_filter_blue" />
+
+            <ImageView
+                android:id="@+id/fab_user_preference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:src="@drawable/icn_map_settings" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/draw_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWhite"
+        android:padding="5dp"
+        android:visibility="gone">
+
+
+        <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+            android:id="@+id/txt_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingLeft="10dp"
+            android:text="Cancel"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            app:font="@string/font_roboto_regular" />
+
+        <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+            android:id="@+id/txt_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:text="Draw"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:font="@string/font_roboto_regular" />
+
+        <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+            android:id="@+id/txt_apply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingRight="10dp"
+            android:text="Apply"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold"
+            app:font="@string/font_roboto_regular" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:layout_marginTop="50dp"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_user_define_pin"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:scaleType="center"
+                android:src="@drawable/icn_direction_transparent_icon"
+                app:backgroundTint="@color/colorPrimary" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_free_draw"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:scaleType="center"
+                android:src="@drawable/icn_draw_transparent_icon"
+                app:backgroundTint="@color/colorPrimary" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab_drive_mode"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:layout_marginRight="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:scaleType="center"
+                android:src="@drawable/icn_car_transparent_icon"
+                app:backgroundTint="@color/colorPrimary" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+        android:id="@+id/txt_clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorWhite"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Clear"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:font="@string/font_roboto_regular" />
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/black_with_op"
+        android:visibility="gone" />
+
+
+</FrameLayout>

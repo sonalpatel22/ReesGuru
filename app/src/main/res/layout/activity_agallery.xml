@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.sabrewinginfotech.reesguru.AGallery_Activity">
+
+
+
+    <LinearLayout
+        android:id="@+id/llfullimage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <FrameLayout
+                android:id="@+id/layout_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:textAlignment="center"
+                    app:theme="@style/MyToolbarTheme" />
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:text="Gallery"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/ivshare"
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_share_black_24dp" />
+
+            </FrameLayout>
+
+        </android.support.design.widget.AppBarLayout>
+        <GridView
+
+            android:id="@+id/gallerygridview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="2">
+
+        </GridView>
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/ivfullimage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <android.support.v4.view.ViewPager
+            android:visibility="gone"
+            android:id="@+id/vpgallery"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v4.view.ViewPager>
+    </LinearLayout>
+</LinearLayout>

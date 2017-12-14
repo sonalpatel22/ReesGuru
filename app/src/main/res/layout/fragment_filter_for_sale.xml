@@ -1,0 +1,841 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container"
+    tools:context="com.sabrewinginfotech.reesguru.fragment.FilterForSaleFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/MyMaterialTheme.AppBarOverlay">
+
+            <RelativeLayout
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:theme="@style/MyToolbarTheme">
+
+                </android.support.v7.widget.Toolbar>
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_gravity="center"
+                    android:background="@null"
+                    android:text="Filter"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="20sp"
+                    app:font="@string/font_roboto_regular" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@null"
+                    android:src="@drawable/ic_refresh" />
+
+            </RelativeLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/search_button"
+            android:layout_below="@+id/app_bar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/card_one"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_marginTop="20dp"
+                    app:cardCornerRadius="5dp">
+
+                    <RadioGroup
+                        android:id="@+id/rdg_property_search_for"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal"
+                        android:weightSum="3">
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_for_sale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_selector_blue_white"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Sale"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black_overlay" />
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_for_rent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_selector_blue_white"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Rent"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black_overlay" />
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_project"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_selector_blue_white"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Project"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                    </RadioGroup>
+
+                </android.support.v7.widget.CardView>
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:text="Search for property"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+                <EditText
+                    android:id="@+id/edt_search_for_property"
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_border_textview"
+                    android:hint="Ex. oxforad, NW3 or waterloo start"
+                    android:imeOptions="actionDone"
+                    android:inputType="textMultiLine"
+                    android:paddingLeft="10dp" />
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:text="Property type"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+                <RadioGroup
+                    android:id="@+id/rdg_property_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+
+
+                    <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                        android:id="@+id/radio_Commercial"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:background="@color/colorWhite"
+                        android:button="@null"
+                        android:drawablePadding="3dp"
+                        android:drawableTop="@drawable/icn_commercial"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Commercial"
+                        android:textColor="@drawable/tab_text"
+                        app:font="@string/font_roboto_regular" />
+
+
+                    <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                        android:id="@+id/radio_resident"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/colorWhite"
+                        android:button="@null"
+                        android:drawablePadding="3dp"
+                        android:drawableTop="@drawable/icn_resident"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Resident"
+                        android:textColor="@drawable/tab_text"
+                        app:font="@string/font_roboto_regular" />
+
+                </RadioGroup>
+
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:text="Bedrooms"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="5dp">
+
+
+                    <RadioGroup
+                        android:id="@+id/rdg_bed_roomes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_any"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_bedroomes"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Any"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black_overlay" />
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_bedroomes"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="1+"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black_overlay" />
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_bedroomes"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="2+"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black_overlay" />
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_bedroomes"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="3+"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black_overlay" />
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_bedroomes"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="4+"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                    </RadioGroup>
+
+                </android.support.v7.widget.CardView>
+
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:text="Bathrooms"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|top"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    app:cardCornerRadius="5dp">
+
+
+                    <RadioGroup
+                        android:id="@+id/rdg_bathrooms"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:orientation="horizontal"
+                        android:weightSum="5">
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_any_bath"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_bedroomes"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="Any"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black_overlay" />
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_1_bath"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_bedroomes"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="1+"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black_overlay" />
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_2_bath"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_bedroomes"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="2+"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black_overlay" />
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_3_bath"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_bedroomes"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="3+"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                        <View
+                            android:layout_width="0.5dp"
+                            android:layout_height="match_parent"
+                            android:background="@color/black_overlay" />
+
+                        <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                            android:id="@+id/radio_4_bath"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:background="@drawable/ic_bedroomes"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="4+"
+                            android:textColor="@drawable/tab_text_bedrooms"
+                            app:font="@string/font_roboto_regular" />
+
+                    </RadioGroup>
+
+                </android.support.v7.widget.CardView>
+
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:text="Price Range"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+
+                <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+                    android:id="@+id/rangeSeekbarPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    app:bar_color="@color/black_overlay"
+                    app:bar_highlight_color="@color/colorBlack"
+                    app:corner_radius="5"
+                    app:data_type="_integer"
+                    app:gap="50000"
+                    app:left_thumb_color="@color/colorPrimary"
+                    app:left_thumb_color_pressed="@color/colorPrimaryDark"
+                    app:left_thumb_image="@drawable/icn_rangslider"
+                    app:max_value="1000000"
+                    app:min_value="500000"
+                    app:right_thumb_color="@color/colorPrimary"
+                    app:right_thumb_color_pressed="@color/colorPrimaryDark"
+                    app:right_thumb_image="@drawable/icn_rangslider" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                        android:id="@+id/txt_min_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Min"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/font_medium"
+                        android:textStyle="bold"
+                        app:font="@string/font_roboto_regular" />
+
+                    <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                        android:id="@+id/txt_max_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="Max"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/font_medium"
+                        android:textStyle="bold"
+                        app:font="@string/font_roboto_regular" />
+
+                </RelativeLayout>
+
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:text="Price Unit"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_border_textview"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/spinner_price_unit"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:entries="@array/unitprice" />
+
+                </LinearLayout>
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:text="Cover Area"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/min_cover_area"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_border_textview"
+                        android:hint="Min CoverArea"
+                        android:inputType="numberDecimal"
+                        android:paddingLeft="10dp" />
+
+                    <EditText
+                        android:id="@+id/max_cover_area"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_border_textview"
+                        android:hint="Max CoverArea"
+                        android:inputType="numberDecimal"
+                        android:paddingLeft="10dp" />
+                </LinearLayout>
+
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="3dp"
+                    android:text="Cover Area Unit type"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_border_textview"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/spinner_cover_unit"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:entries="@array/CoverUnit" />
+
+                </LinearLayout>
+
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:text="Plot Area"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:weightSum="2">
+
+                    <EditText
+                        android:id="@+id/min_plot_area"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_border_textview"
+                        android:hint="Min Plot Area"
+                        android:inputType="numberDecimal"
+                        android:paddingLeft="10dp" />
+
+                    <EditText
+                        android:id="@+id/max_plot_area"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/rounded_border_textview"
+                        android:hint="Max Plot Area"
+                        android:inputType="numberDecimal"
+                        android:paddingLeft="10dp" />
+                </LinearLayout>
+
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:padding="3dp"
+                    android:text="Plot Area Unit type"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/rounded_border_textview"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Spinner
+                        android:id="@+id/spinner_plot_unit"
+                        android:layout_width="match_parent"
+                        android:layout_height="35dp"
+                        android:entries="@array/CoverUnit" />
+
+                </LinearLayout>
+
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:text="Possession"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+
+                <RadioGroup
+                    android:id="@+id/rdg_possession"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+
+                    <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                        android:id="@+id/radio_under_construction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Under Construction"
+                        app:font="@string/font_roboto_regular" />
+
+                    <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                        android:id="@+id/radio_ready"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Ready"
+                        app:font="@string/font_roboto_regular" />
+
+                    <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                        android:id="@+id/radio_both"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Both"
+                        app:font="@string/font_roboto_regular" />
+
+                </RadioGroup>
+
+
+                <com.sabrewinginfotech.reesguru.custom.RobotoTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp"
+                    android:text="Transaction Type"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold"
+                    app:font="@string/font_roboto_regular" />
+
+
+                <RadioGroup
+                    android:id="@+id/rdg_transaction_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="10dp"
+                    android:orientation="vertical">
+
+                    <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                        android:id="@+id/radio_new"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="New"
+                        app:font="@string/font_roboto_regular" />
+
+                    <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                        android:id="@+id/radio_resale"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Resale"
+                        app:font="@string/font_roboto_regular" />
+
+                    <com.sabrewinginfotech.reesguru.custom.RobotoRadioButton
+                        android:id="@+id/radio_both_transaction_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Both"
+                        app:font="@string/font_roboto_regular" />
+
+                </RadioGroup>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Search"
+            android:textColor="@color/colorWhite" />
+
+
+    </RelativeLayout>
+
+</FrameLayout>
