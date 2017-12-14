@@ -131,7 +131,7 @@ public class NearByFragment extends Fragment implements GoogleApiClient.Connecti
     private List<NearestPropertiesModel> propertiesModels = new ArrayList<>();
     private List<NearestPropertiesModel> propertiesModelsSelected = new ArrayList<>();
 
-
+//dashrarth
     public NearByFragment() {
         // Required empty public constructor
     }
